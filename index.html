@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>ZARTA 333</title>
 
   <!-- Fuente 8 bits -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
+      padding: 0;
       min-height: 100vh;
       font-family: 'Press Start 2P', monospace;
       background: linear-gradient(
         135deg,
         #ff0080,
         #ff8c00,
-        #ffee00,
-        #00ff99,
-        #00ccff,
+        #faff00,
+        #00ff9d,
+        #00c3ff,
         #8a2be2
       );
       background-size: 400% 400%;
@@ -30,7 +27,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      color: #ffffff;
+      text-align: center;
     }
 
     @keyframes rainbow {
@@ -39,124 +37,145 @@
       100% { background-position: 0% 50%; }
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.92);
+    .container {
+      background: rgba(0,0,0,0.55);
+      padding: 40px;
       border-radius: 16px;
-      padding: 28px;
       max-width: 800px;
-      width: 100%;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      text-align: center;
+      width: 90%;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
     }
 
-    h1 {
+    h2 {
       font-size: 14px;
-      margin-bottom: 24px;
-      color: #000;
+      margin-bottom: 30px;
     }
 
-    /* ZARTA 333 animado */
-    .zarta {
-      font-size: 22px;
-      margin: 20px 0 30px;
-      background: linear-gradient(
-        90deg,
-        #ff0080,
-        #ff8c00,
-        #ffee00,
-        #00ff99,
-        #00ccff,
-        #8a2be2
-      );
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: zartaMove 4s linear infinite;
+    /* ZARTA + PERSONAJE */
+    .zarta-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
     }
 
-    @keyframes zartaMove {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+    .zarta-text {
+      font-size: 36px;
+      text-shadow:
+        2px 2px #ff00ff,
+        -2px -2px #00ffff;
+      animation: floatText 2.5s ease-in-out infinite;
     }
 
+    @keyframes floatText {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* PERSONAJE 8 BITS */
+    .pixel-girl {
+      width: 64px;
+      height: 96px;
+      background:
+        linear-gradient(#6b3e26 0 0) 16px 0 / 32px 16px,   /* pelo */
+        linear-gradient(#f1c27d 0 0) 20px 16px / 24px 16px, /* cara */
+        linear-gradient(#ff69b4 0 0) 16px 32px / 32px 32px, /* vestido */
+        linear-gradient(#4b0082 0 0) 16px 64px / 14px 32px, /* pierna */
+        linear-gradient(#4b0082 0 0) 34px 64px / 14px 32px; /* pierna */
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      animation: idle 1.2s infinite;
+    }
+
+    @keyframes idle {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* INPUT */
     input[type="file"] {
-      width: 100%;
-      padding: 12px;
-      border: 2px dashed #000;
-      border-radius: 8px;
-      background: #fff;
-      margin-bottom: 20px;
-      font-family: monospace;
-      font-size: 12px;
+      margin: 20px 0;
+      color: white;
     }
 
     button {
-      width: 100%;
-      padding: 16px;
       font-family: 'Press Start 2P', monospace;
       font-size: 12px;
-      background: #000;
-      color: #fff;
+      padding: 14px 20px;
+      background: #00ffff;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin-bottom: 24px;
+      box-shadow: 0 0 10px #00ffff;
     }
 
     button:hover {
-      background: #333;
+      background: #ff00ff;
+      box-shadow: 0 0 12px #ff00ff;
     }
 
-    .result {
+    .output {
       display: none;
-      white-space: pre-line;
+      margin-top: 30px;
       font-size: 11px;
-      line-height: 1.7;
-      color: #000;
-      border-top: 2px dashed #000;
-      padding-top: 20px;
-      text-align: left;
+      line-height: 1.8;
+      white-space: pre-line;
     }
   </style>
 </head>
 
 <body>
-  <div class="card">
-    <h1>✨ Bienvenida Jugadora 333, Corazón dulce de papaya ✨</h1>
+  <div class="container">
 
-    <div class="zarta">ZARTA 333</div>
+    <h2>Bienvenida Jugadora 333,<br>Corazón dulce de papaya</h2>
 
-    <!-- Subir imagen -->
-    <input type="file" accept="image/*">
+    <div class="zarta-container">
+      <div class="pixel-girl"></div>
+      <div class="zarta-text">ZARTA 333</div>
+    </div>
 
-    <button onclick="traducir()">Sóbelo con amor y envíelo pa traducir</button>
+    <p>Adjunta la imagen del mensaje cifrado</p>
 
-    <div class="result" id="resultado">
+    <input type="file" accept="image/png, image/jpeg, image/jpg">
+
+    <br><br>
+
+    <button onclick="mostrarMensaje()">Sóbelo y envíelo pa’ traducir</button>
+
+    <div class="output" id="mensaje">
 Hola, Zarta de mi corazón.
 
 Denso se siente ver estas épocas tan llenas de consumismo.
 Un poco Grinch, quizá, y al mismo tiempo con un corazón que se expande.
 
 He aprendido que estas fechas —y las que importan de verdad—
-son para los rituales llenos de amor, las pausas, los abrazos
+son para los rituales llenos de amor,
+las pausas, los abrazos
 y compartir tiempos presentes.
 
-Estar aquí y ahora es, al final, el único regalo.
+Estar aquí y ahora
+es, al final, el único regalo.
 
 No escribo esperando respuesta.
-Tu regalo es: el amor que catalizó mi andar
+Tu regalo es: el amor
+que catalizó mi andar
 y mi mejor conquista.
 
 Nos veremos cuando nos veamos.
 Te ama, presente.
 
-JEGA.
+JEGA
     </div>
+
   </div>
 
   <script>
-    function traducir() {
-      document.getElementById("resultado").style.display = "block";
+    function mostrarMensaje() {
+      document.getElementById("mensaje").style.display = "block";
     }
   </script>
 </body>
