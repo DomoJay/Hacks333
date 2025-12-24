@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Traductor Secreto</title>
+  <title>ZARTA 333</title>
 
-  <!-- Fuente estilo 8 bits -->
+  <!-- Fuente 8 bits -->
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   <style>
@@ -16,7 +16,6 @@
       margin: 0;
       min-height: 100vh;
       font-family: 'Press Start 2P', monospace;
-      color: #111;
       background: linear-gradient(
         135deg,
         #ff0080,
@@ -41,31 +40,54 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       border-radius: 16px;
-      padding: 24px;
+      padding: 28px;
       max-width: 800px;
       width: 100%;
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      text-align: center;
     }
 
     h1 {
-      font-size: 16px;
-      text-align: center;
+      font-size: 14px;
       margin-bottom: 24px;
       color: #000;
     }
 
-    textarea {
+    /* ZARTA 333 animado */
+    .zarta {
+      font-size: 22px;
+      margin: 20px 0 30px;
+      background: linear-gradient(
+        90deg,
+        #ff0080,
+        #ff8c00,
+        #ffee00,
+        #00ff99,
+        #00ccff,
+        #8a2be2
+      );
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: zartaMove 4s linear infinite;
+    }
+
+    @keyframes zartaMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    input[type="file"] {
       width: 100%;
-      height: 140px;
       padding: 12px;
+      border: 2px dashed #000;
+      border-radius: 8px;
+      background: #fff;
+      margin-bottom: 20px;
       font-family: monospace;
       font-size: 12px;
-      border-radius: 8px;
-      border: 2px solid #000;
-      resize: none;
-      margin-bottom: 16px;
     }
 
     button {
@@ -78,7 +100,7 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     button:hover {
@@ -89,14 +111,11 @@
       display: none;
       white-space: pre-line;
       font-size: 11px;
-      line-height: 1.6;
+      line-height: 1.7;
       color: #000;
       border-top: 2px dashed #000;
-      padding-top: 16px;
-    }
-
-    .spotify {
-      margin-top: 24px;
+      padding-top: 20px;
+      text-align: left;
     }
   </style>
 </head>
@@ -105,7 +124,10 @@
   <div class="card">
     <h1>✨ Bienvenida Jugadora 333, Corazón dulce de papaya ✨</h1>
 
-    <textarea placeholder="Pega aquí el mensaje cifrado..."></textarea>
+    <div class="zarta">ZARTA 333</div>
+
+    <!-- Subir imagen -->
+    <input type="file" accept="image/*">
 
     <button onclick="traducir()">Sóbelo con amor y envíelo pa traducir</button>
 
@@ -129,17 +151,6 @@ Nos veremos cuando nos veamos.
 Te ama, presente.
 
 JEGA.
-    </div>
-
-    <div class="spotify">
-      <iframe style="border-radius:12px"
-        src="https://open.spotify.com/embed/track/4o2glw3wzJr5W4PZPjzq3W"
-        width="100%"
-        height="80"
-        frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
-      </iframe>
     </div>
   </div>
 
