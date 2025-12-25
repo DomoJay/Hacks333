@@ -75,20 +75,20 @@
       100% { transform: translateY(0); }
     }
 
-    /* PERSONAJE 8 BITS */
-    .pixel-girl {
-      width: 64px;
-      height: 96px;
-      background:
-        linear-gradient(#6b3e26 0 0) 16px 0 / 32px 16px,   /* pelo */
-        linear-gradient(#f1c27d 0 0) 20px 16px / 24px 16px, /* cara */
-        linear-gradient(#ff69b4 0 0) 16px 32px / 32px 32px, /* vestido */
-        linear-gradient(#4b0082 0 0) 16px 64px / 14px 32px, /* pierna */
-        linear-gradient(#4b0082 0 0) 34px 64px / 14px 32px; /* pierna */
-      background-repeat: no-repeat;
-      image-rendering: pixelated;
-      animation: idle 1.2s infinite;
-    }
+    /* PERSONAJE Z333 BITS */
+.pixel-avatar {
+  width: 160px;                /* tamaño visible */
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  animation: avatarFloat 1.5s ease-in-out infinite;
+}
+
+@keyframes avatarFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
 
     @keyframes idle {
       0% { transform: translateY(0); }
@@ -134,7 +134,7 @@
     <h2>Bienvenida Jugadora 333,<br>Corazón dulce de papaya</h2>
 
     <div class="zarta-container">
-      <div class="pixel-girl"></div>
+      <img src="zarta.png" class="pixel-avatar">
       <div class="zarta-text">ZARTA 333</div>
     </div>
 
