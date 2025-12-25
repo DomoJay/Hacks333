@@ -51,7 +51,6 @@
       margin-bottom: 30px;
     }
 
-    /* ZARTA + PERSONAJE */
     .zarta-container {
       display: flex;
       align-items: center;
@@ -75,28 +74,21 @@
       100% { transform: translateY(0); }
     }
 
-    /* PERSONAJE Z333 BITS */
-.pixel-avatar {
-  width: 160px;                /* tamaño visible */
-  height: auto;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  animation: avatarFloat 1.5s ease-in-out infinite;
-}
+    /* PERSONAJE Z333 */
+    .pixel-avatar {
+      width: 160px;
+      height: auto;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      animation: avatarFloat 1.5s ease-in-out infinite;
+    }
 
-@keyframes avatarFloat {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
-
-    @keyframes idle {
+    @keyframes avatarFloat {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
+      50% { transform: translateY(-8px); }
       100% { transform: translateY(0); }
     }
 
-    /* INPUT */
     input[type="file"] {
       margin: 20px 0;
       color: white;
@@ -118,6 +110,35 @@
       box-shadow: 0 0 12px #ff00ff;
     }
 
+    /* ANIMACIÓN PREVIA 8-BIT */
+    .pre-anim {
+      display: none;
+      font-size: 28px;
+      margin-top: 30px;
+      animation: explode 1.5s steps(4) forwards;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+        filter: blur(0);
+      }
+      30% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      60% {
+        transform: scale(1.6);
+        filter: blur(1px);
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+        filter: blur(3px);
+      }
+    }
+
     .output {
       display: none;
       margin-top: 30px;
@@ -131,11 +152,11 @@
 <body>
   <div class="container">
 
-    <h2>Bienvenida Jugadora 333,<br>Corazón dulce de papaya</h2>
+    <h2>✨🎶 Bienvenida Jugadora 333,<br>Corazón dulce de papaya 🎶✨</h2>
 
     <div class="zarta-container">
       <img src="assets/zarta.png" class="pixel-avatar" alt="Zarta 333">
-      <div class="zarta-text">ZARTA 333</div>
+      <div class="zarta-text">🌈🦄🫀 ZARTA 333 🫀🦄🌈</div>
     </div>
 
     <p>Adjunta la imagen del mensaje cifrado</p>
@@ -145,6 +166,11 @@
     <br><br>
 
     <button onclick="mostrarMensaje()">Sóbelo y envíelo pa’ traducir</button>
+
+    <!-- ANIMACIÓN PREVIA -->
+    <div id="preAnim" class="pre-anim">
+      💥🌈✨☁️🔥✨🌈💥
+    </div>
 
     <div class="output" id="mensaje">
 Hola, Zarta de mi corazón.
@@ -165,6 +191,10 @@ Tu regalo es: el amor
 que catalizó mi andar
 y mi mejor conquista.
 
+Para el otro año, pediré que si es preciso, yo te movilice ese corazón pues... 
+Ya te pude ver y entendí que no soy yo. 
+En todo caso, yo sigo caminando porque ya mañana no sé. 
+
 Nos veremos cuando nos veamos.
 Te ama, presente.
 
@@ -175,7 +205,16 @@ JEGA
 
   <script>
     function mostrarMensaje() {
-      document.getElementById("mensaje").style.display = "block";
+      const anim = document.getElementById("preAnim");
+      const mensaje = document.getElementById("mensaje");
+
+      anim.style.display = "block";
+      mensaje.style.display = "none";
+
+      setTimeout(() => {
+        anim.style.display = "none";
+        mensaje.style.display = "block";
+      }, 1500);
     }
   </script>
 </body>
