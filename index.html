@@ -2,6 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+
+  <!-- VIEWPORT RESPONSIVO -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>ZARTA 333</title>
 
   <!-- Fuente 8 bits -->
@@ -44,6 +48,7 @@
       max-width: 800px;
       width: 90%;
       box-shadow: 0 0 30px rgba(0,0,0,0.6);
+      box-sizing: border-box;
     }
 
     h2 {
@@ -74,7 +79,6 @@
       100% { transform: translateY(0); }
     }
 
-    /* PERSONAJE Z333 */
     .pixel-avatar {
       width: 160px;
       height: auto;
@@ -110,7 +114,6 @@
       box-shadow: 0 0 12px #ff00ff;
     }
 
-    /* ANIMACIÓN PREVIA 8-BIT */
     .pre-anim {
       display: none;
       font-size: 28px;
@@ -119,24 +122,10 @@
     }
 
     @keyframes explode {
-      0% {
-        transform: scale(0.5);
-        opacity: 0;
-        filter: blur(0);
-      }
-      30% {
-        transform: scale(1.2);
-        opacity: 1;
-      }
-      60% {
-        transform: scale(1.6);
-        filter: blur(1px);
-      }
-      100% {
-        transform: scale(2);
-        opacity: 0;
-        filter: blur(3px);
-      }
+      0% { transform: scale(0.5); opacity: 0; }
+      30% { transform: scale(1.2); opacity: 1; }
+      60% { transform: scale(1.6); filter: blur(1px); }
+      100% { transform: scale(2); opacity: 0; filter: blur(3px); }
     }
 
     .output {
@@ -145,6 +134,30 @@
       font-size: 11px;
       line-height: 1.8;
       white-space: pre-line;
+    }
+
+    /* IMÁGENES FLUIDAS */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* RESPONSIVE TABLET / MOBILE */
+    @media (max-width: 768px) {
+      .container { padding: 24px; }
+      .zarta-text { font-size: 24px; }
+      h2 { font-size: 11px; }
+      .pixel-avatar { width: 120px; }
+      .pre-anim { font-size: 22px; }
+      button { font-size: 10px; padding: 12px 16px; }
+    }
+
+    /* MOBILE PEQUEÑO */
+    @media (max-width: 480px) {
+      .zarta-container { gap: 20px; }
+      .zarta-text { font-size: 20px; }
+      .pixel-avatar { width: 100px; }
+      .output { font-size: 10px; }
     }
   </style>
 </head>
@@ -167,7 +180,6 @@
 
     <button onclick="mostrarMensaje()">Sóbelo y envíelo pa’ traducir</button>
 
-    <!-- ANIMACIÓN PREVIA -->
     <div id="preAnim" class="pre-anim">
       💥🌈✨☁️🔥✨🌈💥
     </div>
